@@ -1,0 +1,52 @@
+﻿@model CustomValidationDate.Models.RegisterValidationViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section datetimescript{
+   
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/daterangepicker.css" rel="stylesheet" />
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/moment.js"></script>
+<script src="~/Scripts/daterangepicker.js"></script>
+}
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>DEMO NHẬP NGÀY</legend>
+
+        <div class="editor-label">
+            <label></label>
+        </div>
+
+        @*<div class="editor-field">
+            <input type="text" class="form-control" id="startDate" value="@DateTime.Now" name="DateOfBirth">
+            @Html.ValidationMessageFor(model => model.DateOfBirth)
+        </div>*@
+        <div class="editor-field">
+            <input type="text" class="form-control" name="Phone">
+            @Html.ValidationMessageFor(model => model.Phone)
+        </div>
+        @*<div class="editor-field">
+            <input type="text" class="form-control" name="Identify">
+            @Html.ValidationMessageFor(model => model.Identify)
+        </div>*@
+        @*<div class="editor-field">
+            <input type="text" class="form-control" name="FullName">
+            @Html.ValidationMessageFor(model => model.FullName)
+        </div>*@
+        <p>
+            <br />
+            <input type="submit" value="Create" class="btn btn-default" />
+        </p>
+    </fieldset>
+}
+<script type="text/javascript">
+    $('#startDate').daterangepicker({
+        singleDatePicker: true,
+        startDate: moment().subtract(6, 'days')
+    });
+</script>
